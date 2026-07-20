@@ -1,25 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Global State
+  // Application Data & State
   let allLocations = [];
-  let currentFilteredLocations = [];
   let map = null;
   let markersClusterGroup = null;
-  let locationMarkersMap = new Map(); // name -> L.marker
+  let locationMarkersMap = new Map(); // Store markers by location name
   let activeTileLayer = null;
 
-  // Tile Layer Configurations
+  // Map Tile Layers (Light, Dark, Satellite)
   const TILE_LAYERS = {
     voyager: L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
       maxZoom: 19,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>'
     }),
     dark: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
       maxZoom: 19,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>'
     }),
     satellite: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
       maxZoom: 19,
-      attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+      attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS'
     })
   };
 
@@ -28,14 +27,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const searchInputEl = document.getElementById('search-input');
   const clearSearchBtn = document.getElementById('clear-search');
   const categorySelectEl = document.getElementById('category-select');
-  const filterPillsEl = document.getElementById('filter-pills');
   const resultsCountEl = document.getElementById('results-count');
   const resetViewBtn = document.getElementById('reset-view-btn');
   const toggleSidebarBtn = document.getElementById('toggle-sidebar-btn');
   const mobileSidebarToggleBtn = document.getElementById('mobile-sidebar-toggle');
   const sidebarEl = document.getElementById('sidebar');
 
-  // Initialize Map
+  // Step 1: Initialize Leaflet Map
   function initMap() {
     map = L.map('map', {
       center: [43.32, -2.15],
@@ -45,20 +43,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     L.control.zoom({ position: 'bottomright' }).addTo(map);
 
+    // Set default Light map tiles
     activeTileLayer = TILE_LAYERS.voyager;
     activeTileLayer.addTo(map);
 
+    // Cluster group for pins
     markersClusterGroup = L.markerClusterGroup({
       showCoverageOnHover: false,
-      maxClusterRadius: 40,
+      maxClusterRadius: 35,
       spiderfyOnMaxZoom: true
     });
     map.addLayer(markersClusterGroup);
   }
 
-  // Create Custom HTML Pin Icon with Emoji
-  function createCustomIcon(emoji, hasNote) {
-    const className = hasNote ? 'custom-pin has-note' : 'custom-pin standard';
+  // Step 2: Create Custom Pin Icon with Emoji
+  function createMarkerIcon(emoji, hasNote) {
+    const className = hasNote ? 'custom-pin has-note' : 'custom-pin';
     const displayEmoji = emoji || '📍';
     
     return L.divIcon({
@@ -70,44 +70,65 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Load Locations Data
-  async function loadData() {
+  // Step 3: Fetch Locations JSON File
+  async function loadLocations() {
     try {
       const response = await fetch('locations.json');
       allLocations = await response.json();
-      currentFilteredLocations = [...allLocations];
 
-      renderSidebarList(currentFilteredLocations);
-      renderMapMarkers(currentFilteredLocations);
-      updateStats();
+      // Initial render with all locations
+      applyFilters();
     } catch (err) {
-      console.error('Error loading location data:', err);
-      locationListEl.innerHTML = '<li class="location-item" style="color: #ef4444;">Failed to load location data.</li>';
+      console.error('Failed to load locations.json:', err);
+      locationListEl.innerHTML = '<li class="location-item" style="color: #ef4444; text-align: center;">Error loading location data.</li>';
     }
   }
 
-  // Update Top Stats
-  function updateStats() {
-    document.getElementById('stat-total').textContent = allLocations.length;
-    const withNotes = allLocations.filter(loc => loc.note && loc.note.trim() !== '').length;
-    document.getElementById('stat-notes').textContent = withNotes;
+  // Step 4: Core Filtering Function (Search + Category Select)
+  function applyFilters() {
+    const query = searchInputEl.value.toLowerCase().trim();
+    const selectedCategory = categorySelectEl.value;
+
+    // Filter array based on user choices
+    const filteredLocations = allLocations.filter((loc) => {
+      // Search query filter (matches name, address, note, or category)
+      const nameMatch = loc.name.toLowerCase().includes(query);
+      const noteMatch = loc.note && loc.note.toLowerCase().includes(query);
+      const addrMatch = loc.address && loc.address.toLowerCase().includes(query);
+      const catMatch = loc.category && loc.category.toLowerCase().includes(query);
+      const matchesSearch = nameMatch || noteMatch || addrMatch || catMatch;
+
+      if (!matchesSearch) return false;
+
+      // Category dropdown filter
+      if (selectedCategory === 'all') {
+        return true;
+      } else if (selectedCategory === 'notes') {
+        return loc.note && loc.note.trim() !== '';
+      } else {
+        return loc.category === selectedCategory;
+      }
+    });
+
+    // Update List & Map
+    renderLocationList(filteredLocations);
+    renderMapMarkers(filteredLocations);
   }
 
-  // Render Sidebar Location Cards
-  function renderSidebarList(locations) {
+  // Step 5: Render Sidebar List
+  function renderLocationList(locations) {
     locationListEl.innerHTML = '';
+
+    resultsCountEl.textContent = `Showing ${locations.length} location${locations.length === 1 ? '' : 's'}`;
 
     if (locations.length === 0) {
       locationListEl.innerHTML = `
         <div style="padding: 30px 20px; text-align: center; color: var(--text-muted);">
           <i class="fa-solid fa-location-dot" style="font-size: 2rem; margin-bottom: 10px; display: block;"></i>
-          No locations match your search or filter.
+          No locations match your selection.
         </div>`;
-      resultsCountEl.textContent = '0 locations found';
       return;
     }
-
-    resultsCountEl.textContent = `Showing ${locations.length} location${locations.length === 1 ? '' : 's'}`;
 
     locations.forEach((loc) => {
       const itemEl = document.createElement('li');
@@ -121,15 +142,16 @@ document.addEventListener('DOMContentLoaded', () => {
           <span class="location-name">${escapeHtml(loc.name)}</span>
           <span class="category-tag">${loc.emoji || '📍'} ${escapeHtml(loc.category || 'Other')}</span>
         </div>
-        ${hasNote ? `<div class="note-badge"><i class="fa-solid fa-comment-dots"></i> ${escapeHtml(loc.note)}</div>` : ''}
+        ${hasNote ? `<div class="note-badge"><i class="fa-solid fa-star"></i> ${escapeHtml(loc.note)}</div>` : ''}
         <div class="location-address">
           <i class="fa-solid fa-location-pin"></i>
           <span>${escapeHtml(loc.address || 'Basque Country')}</span>
         </div>
       `;
 
+      // Click card -> Fly to map pin
       itemEl.addEventListener('click', () => {
-        selectLocation(loc);
+        focusLocationOnMap(loc);
         if (window.innerWidth <= 768) {
           sidebarEl.classList.add('collapsed');
         }
@@ -139,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Render Leaflet Map Markers
+  // Step 6: Render Map Markers
   function renderMapMarkers(locations) {
     markersClusterGroup.clearLayers();
     locationMarkersMap.clear();
@@ -150,11 +172,11 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!loc.lat || !loc.lng) return;
 
       const hasNote = loc.note && loc.note.trim() !== '';
-      const markerIcon = createCustomIcon(loc.emoji, hasNote);
+      const icon = createMarkerIcon(loc.emoji, hasNote);
 
-      const marker = L.marker([loc.lat, loc.lng], { icon: markerIcon });
+      const marker = L.marker([loc.lat, loc.lng], { icon: icon });
 
-      // Popup Content Card
+      // Build Popup Card HTML
       const popupHtml = `
         <div class="popup-card">
           <div class="popup-category">${loc.emoji || '📍'} ${escapeHtml(loc.category || 'Location')}</div>
@@ -170,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
       marker.bindPopup(popupHtml, { closeButton: false });
 
       marker.on('click', () => {
-        highlightSidebarItem(loc.name);
+        highlightSidebarCard(loc.name);
       });
 
       markersClusterGroup.addLayer(marker);
@@ -178,31 +200,28 @@ document.addEventListener('DOMContentLoaded', () => {
       bounds.extend([loc.lat, loc.lng]);
     });
 
+    // Auto-fit map bounds to currently visible markers
     if (locations.length > 0 && bounds.isValid()) {
       map.fitBounds(bounds.pad(0.12));
     }
   }
 
-  // Select Location (Pan Map & Open Popup)
-  function selectLocation(loc) {
+  // Step 7: Focus & Zoom Map to Selected Location
+  function focusLocationOnMap(loc) {
     const marker = locationMarkersMap.get(loc.name);
 
     if (marker) {
-      map.flyTo([loc.lat, loc.lng], 16, {
-        animate: true,
-        duration: 1.2
-      });
-
+      map.flyTo([loc.lat, loc.lng], 16, { animate: true, duration: 1.2 });
       markersClusterGroup.zoomToShowLayer(marker, () => {
         marker.openPopup();
       });
     }
 
-    highlightSidebarItem(loc.name);
+    highlightSidebarCard(loc.name);
   }
 
-  // Highlight Sidebar Card & Scroll into view
-  function highlightSidebarItem(name) {
+  // Step 8: Highlight Active Card in Sidebar
+  function highlightSidebarCard(name) {
     document.querySelectorAll('.location-item').forEach((item) => {
       if (item.dataset.name === name) {
         item.classList.add('active');
@@ -213,51 +232,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Search & Filter Logic
-  function applyFilters() {
-    const query = searchInputEl.value.toLowerCase().trim();
-    const selectedCategory = categorySelectEl.value;
-
-    currentFilteredLocations = allLocations.filter((loc) => {
-      // Search query check
-      const nameMatch = loc.name.toLowerCase().includes(query);
-      const noteMatch = loc.note && loc.note.toLowerCase().includes(query);
-      const addrMatch = loc.address && loc.address.toLowerCase().includes(query);
-      const catMatch = loc.category && loc.category.toLowerCase().includes(query);
-      const matchesSearch = nameMatch || noteMatch || addrMatch || catMatch;
-
-      if (!matchesSearch) return false;
-
-      // Category filter check
-      if (selectedCategory === 'all') {
-        return true;
-      } else if (selectedCategory === 'notes') {
-        return loc.note && loc.note.trim() !== '';
-      } else {
-        return loc.category === selectedCategory;
-      }
-    });
-
-    renderSidebarList(currentFilteredLocations);
-    renderMapMarkers(currentFilteredLocations);
-  }
-
-  // Sync category select dropdown with quick pills
-  function syncCategoryFilter(categoryValue) {
-    categorySelectEl.value = categoryValue;
-
-    document.querySelectorAll('.filter-pills .pill').forEach((pill) => {
-      if (pill.dataset.filter === categoryValue) {
-        pill.classList.add('active');
-      } else {
-        pill.classList.remove('active');
-      }
-    });
-
-    applyFilters();
-  }
-
   // Event Listeners
+  categorySelectEl.addEventListener('change', applyFilters);
+
   searchInputEl.addEventListener('input', () => {
     clearSearchBtn.classList.toggle('hidden', searchInputEl.value.trim() === '');
     applyFilters();
@@ -269,18 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
     applyFilters();
   });
 
-  categorySelectEl.addEventListener('change', (e) => {
-    syncCategoryFilter(e.target.value);
-  });
-
-  filterPillsEl.addEventListener('click', (e) => {
-    const pill = e.target.closest('.pill');
-    if (!pill) return;
-
-    syncCategoryFilter(pill.dataset.filter);
-  });
-
-  // Map Tile Selector
+  // Tile Switcher (Light / Dark / Satellite)
   document.querySelectorAll('.tile-btn').forEach((btn) => {
     btn.addEventListener('click', () => {
       const tileType = btn.dataset.tile;
@@ -295,15 +261,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Reset Map Bounds
+  // Reset Map View
   resetViewBtn.addEventListener('click', () => {
-    if (currentFilteredLocations.length > 0) {
-      const bounds = L.latLngBounds(currentFilteredLocations.map(l => [l.lat, l.lng]));
-      map.fitBounds(bounds.pad(0.12));
+    if (allLocations.length > 0) {
+      categorySelectEl.value = 'all';
+      searchInputEl.value = '';
+      clearSearchBtn.classList.add('hidden');
+      applyFilters();
     }
   });
 
-  // Toggle Sidebar
+  // Toggle Sidebar Collapse
   toggleSidebarBtn.addEventListener('click', () => {
     sidebarEl.classList.toggle('collapsed');
   });
@@ -328,7 +296,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Init
+  // Init App
   initMap();
-  loadData();
+  loadLocations();
 });

@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Euskadi Interactive Map — Basque Country Explorer</title>
-  <meta name="description" content="Interactive map of 99 curated locations across Euskadi (San Sebastián, Bilbao, Biarritz) categorized with emojis and notes.">
+  <meta name="description" content="Interactive map of 99 curated locations across Euskadi (San Sebastián, Bilbao, Biarritz) with category filters and notes.">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Leaflet CSS & JS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -28,91 +28,59 @@
 </head>
 <body>
   <div id="app-container">
-    <!-- Sidebar Panel -->
+    <!-- Clean & Simple Sidebar -->
     <aside id="sidebar" class="sidebar">
+      
+      <!-- 1. Header -->
       <div class="sidebar-header">
         <div class="brand">
           <div class="brand-icon"><i class="fa-solid fa-compass"></i></div>
           <div>
             <h1>Euskadi Map</h1>
-            <p class="subtitle">99 Curated Places in Basque Country</p>
+            <p class="subtitle">99 Curated Basque Locations</p>
           </div>
         </div>
-        <button id="toggle-sidebar-btn" class="icon-btn" title="Toggle Sidebar">
+        <button id="toggle-sidebar-btn" class="icon-btn" title="Collapse Sidebar">
           <i class="fa-solid fa-chevron-left"></i>
         </button>
       </div>
 
-      <!-- Quick Stats -->
-      <div class="stats-card">
-        <div class="stat-item">
-          <span class="stat-num" id="stat-total">99</span>
-          <span class="stat-label">Locations</span>
+      <!-- 2. Search Input -->
+      <div class="filter-section">
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="search-input" placeholder="Search name, note, address..." autocomplete="off">
+          <button id="clear-search" class="clear-btn hidden"><i class="fa-solid fa-xmark"></i></button>
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-num" id="stat-notes">10</span>
-          <span class="stat-label">With Notes</span>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="stat-item">
-          <span class="stat-num">12</span>
-          <span class="stat-label">Categories</span>
-        </div>
-      </div>
 
-      <!-- Search Box -->
-      <div class="search-box">
-        <i class="fa-solid fa-magnifying-glass search-icon"></i>
-        <input type="text" id="search-input" placeholder="Search name, category, note..." autocomplete="off">
-        <button id="clear-search" class="clear-btn hidden"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-
-      <!-- Category Filter Dropdown -->
-      <div class="category-select-wrapper">
-        <label for="category-select" class="filter-label">
-          <i class="fa-solid fa-filter"></i> Category Filter
-        </label>
-        <div class="select-container">
-          <select id="category-select" class="category-dropdown">
-            <option value="all">✨ Show All Categories (99)</option>
-            <option value="notes">⭐ With Notes Only (10)</option>
-            <option value="Cucina spagnola">🇪🇸 Cucina spagnola (25)</option>
-            <option value="Cafes/bakeries">🥐 Cafes/bakeries (18)</option>
-            <option value="Spiagge">🌊 Spiagge (12)</option>
-            <option value="Ristoranti">🍴 Ristoranti (11)</option>
-            <option value="Drinks">🥃 Drinks (8)</option>
-            <option value="Musei">🖼️ Musei (6)</option>
-            <option value="Mercati/alimentari">🛒 Mercati/alimentari (5)</option>
-            <option value="Negozi">🛍️ Negozi (5)</option>
-            <option value="Parchi">🌳 Parchi (3)</option>
-            <option value="Enoteche">🍷 Enoteche (2)</option>
-            <option value="Panini/burger">🥪 Panini/burger (2)</option>
-            <option value="Chiese">⛪️ Chiese (2)</option>
-          </select>
-          <i class="fa-solid fa-chevron-down select-chevron"></i>
+        <!-- 3. Single Clean Category Filter Dropdown -->
+        <div class="dropdown-box">
+          <label for="category-select" class="dropdown-label">
+            <i class="fa-solid fa-filter"></i> Category
+          </label>
+          <div class="select-wrapper">
+            <select id="category-select" class="clean-select">
+              <option value="all">✨ Show All Categories (99)</option>
+              <option value="notes">⭐ With Notes Only (10)</option>
+              <option value="Cucina spagnola">🇪🇸 Cucina spagnola (25)</option>
+              <option value="Cafes/bakeries">🥐 Cafes/bakeries (18)</option>
+              <option value="Spiagge">🌊 Spiagge (12)</option>
+              <option value="Ristoranti">🍴 Ristoranti (11)</option>
+              <option value="Drinks">🥃 Drinks (8)</option>
+              <option value="Musei">🖼️ Musei (6)</option>
+              <option value="Mercati/alimentari">🛒 Mercati/alimentari (5)</option>
+              <option value="Negozi">🛍️ Negozi (5)</option>
+              <option value="Parchi">🌳 Parchi (3)</option>
+              <option value="Enoteche">🍷 Enoteche (2)</option>
+              <option value="Panini/burger">🥪 Panini/burger (2)</option>
+              <option value="Chiese">⛪️ Chiese (2)</option>
+            </select>
+            <i class="fa-solid fa-chevron-down dropdown-icon"></i>
+          </div>
         </div>
       </div>
 
-      <!-- Quick Category Filter Pills -->
-      <div class="filter-pills" id="filter-pills">
-        <button class="pill active" data-filter="all">All (99)</button>
-        <button class="pill pill-star" data-filter="notes">⭐ Notes (10)</button>
-        <button class="pill" data-filter="Cucina spagnola">🇪🇸 Cucina spagnola (25)</button>
-        <button class="pill" data-filter="Cafes/bakeries">🥐 Cafes/bakeries (18)</button>
-        <button class="pill" data-filter="Spiagge">🌊 Spiagge (12)</button>
-        <button class="pill" data-filter="Ristoranti">🍴 Ristoranti (11)</button>
-        <button class="pill" data-filter="Drinks">🥃 Drinks (8)</button>
-        <button class="pill" data-filter="Musei">🖼️ Musei (6)</button>
-        <button class="pill" data-filter="Mercati/alimentari">🛒 Mercati (5)</button>
-        <button class="pill" data-filter="Negozi">🛍️ Negozi (5)</button>
-        <button class="pill" data-filter="Parchi">🌳 Parchi (3)</button>
-        <button class="pill" data-filter="Enoteche">🍷 Enoteche (2)</button>
-        <button class="pill" data-filter="Panini/burger">🥪 Panini/burger (2)</button>
-        <button class="pill" data-filter="Chiese">⛪️ Chiese (2)</button>
-      </div>
-
-      <!-- Location List -->
+      <!-- 4. Location List Header -->
       <div class="list-container">
         <div class="list-header">
           <span id="results-count">Showing 99 locations</span>
@@ -120,10 +88,12 @@
             <i class="fa-solid fa-file-csv"></i> CSV
           </a>
         </div>
+        <!-- 5. Location Cards List -->
         <ul id="location-list" class="location-list">
-          <!-- Dynamically populated -->
+          <!-- Dynamically populated by app.js -->
         </ul>
       </div>
+
     </aside>
 
     <!-- Map Viewport -->
@@ -135,10 +105,10 @@
         </button>
 
         <div class="tile-selector">
-          <button class="tile-btn active" data-tile="voyager" title="Carto Voyager Style">
+          <button class="tile-btn active" data-tile="voyager" title="Light Map">
             <i class="fa-solid fa-map"></i> Light
           </button>
-          <button class="tile-btn" data-tile="dark" title="Dark Mode Style">
+          <button class="tile-btn" data-tile="dark" title="Dark Map">
             <i class="fa-solid fa-moon"></i> Dark
           </button>
           <button class="tile-btn" data-tile="satellite" title="Satellite View">
@@ -146,8 +116,8 @@
           </button>
         </div>
 
-        <button id="reset-view-btn" class="toolbar-btn" title="Reset Zoom to Fit All Markers">
-          <i class="fa-solid fa-compress"></i> Reset View
+        <button id="reset-view-btn" class="toolbar-btn" title="Reset Map Zoom">
+          <i class="fa-solid fa-compress"></i> Reset Map
         </button>
       </div>
 
