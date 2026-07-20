@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Euskadi Interactive Map — Basque Country Explorer</title>
+  <meta name="description" content="Interactive map of 99 curated locations across Euskadi (San Sebastián, Bilbao, Biarritz) with notes and recommendations.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Leaflet CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- Leaflet MarkerCluster CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- App Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app-container">
+    <!-- Sidebar Panel -->
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-header">
+        <div class="brand">
+          <div class="brand-icon"><i class="fa-solid fa-compass"></i></div>
+          <div>
+            <h1>Euskadi Map</h1>
+            <p class="subtitle">99 Curated Places in Basque Country</p>
+          </div>
+        </div>
+        <button id="toggle-sidebar-btn" class="icon-btn" title="Toggle Sidebar">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+      </div>
+
+      <!-- Quick Stats -->
+      <div class="stats-card">
+        <div class="stat-item">
+          <span class="stat-num" id="stat-total">99</span>
+          <span class="stat-label">Locations</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num" id="stat-notes">10</span>
+          <span class="stat-label">With Notes</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-num">3</span>
+          <span class="stat-label">Regions</span>
+        </div>
+      </div>
+
+      <!-- Search & Controls -->
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="search-input" placeholder="Search by name, note, address..." autocomplete="off">
+        <button id="clear-search" class="clear-btn hidden"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <!-- Category Filter Pills -->
+      <div class="filter-pills" id="filter-pills">
+        <button class="pill active" data-filter="all">All (99)</button>
+        <button class="pill pill-star" data-filter="notes"><i class="fa-solid fa-star"></i> With Notes (10)</button>
+        <button class="pill" data-filter="donostia">Donostia</button>
+        <button class="pill" data-filter="bilbao">Bilbao</button>
+        <button class="pill" data-filter="biarritz">Biarritz</button>
+      </div>
+
+      <!-- Location List -->
+      <div class="list-container">
+        <div class="list-header">
+          <span id="results-count">Showing 99 locations</span>
+          <a href="euskadi_locations.csv" download class="csv-download-btn" title="Download CSV">
+            <i class="fa-solid fa-file-csv"></i> CSV
+          </a>
+        </div>
+        <ul id="location-list" class="location-list">
+          <!-- Dynamically populated -->
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Map Viewport -->
+    <main id="map-viewport">
+      <!-- Floating Map Toolbar -->
+      <div class="map-toolbar">
+        <button id="mobile-sidebar-toggle" class="toolbar-btn hidden-desktop">
+          <i class="fa-solid fa-bars"></i> List
+        </button>
+
+        <div class="tile-selector">
+          <button class="tile-btn active" data-tile="voyager" title="Carto Voyager Style">
+            <i class="fa-solid fa-map"></i> Light
+          </button>
+          <button class="tile-btn" data-tile="dark" title="Dark Mode Style">
+            <i class="fa-solid fa-moon"></i> Dark
+          </button>
+          <button class="tile-btn" data-tile="satellite" title="Satellite View">
+            <i class="fa-solid fa-globe"></i> Satellite
+          </button>
+        </div>
+
+        <button id="reset-view-btn" class="toolbar-btn" title="Reset Zoom to Fit All Markers">
+          <i class="fa-solid fa-compress"></i> Reset View
+        </button>
+      </div>
+
+      <!-- Leaflet Map Container -->
+      <div id="map"></div>
+    </main>
+  </div>
+
+  <!-- App Script -->
+  <script src="app.js"></script>
+</body>
+</html>

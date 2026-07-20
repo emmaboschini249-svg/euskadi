@@ -1,0 +1,794 @@
+[
+  {
+    "name": "ARENALES DONOSTIA",
+    "note": "",
+    "address": "Boulevard Zumardia, 11, 20003 Donostia / San Sebastián, Gipuzkoa, Spagna",
+    "lat": 43.3222501,
+    "lng": -1.9830892999999998,
+    "url": "https://www.google.com/maps/place/g/11f54nxfc2"
+  },
+  {
+    "name": "Ganbara",
+    "note": "",
+    "address": "C. de San Jerónimo, 21, 20003 Donostia / San Sebastián, Gipuzkoa, Spagna",
+    "lat": 43.3234339,
+    "lng": -1.9855011,
+    "url": "https://www.google.com/maps/place/g/1v470p07"
+  },
+  {
+    "name": "Maison Adam - Clémenceau",
+    "note": "Macaron basque",
+    "address": "27 Pl. Georges Clemenceau, 64200 Biarritz, Francia",
+    "lat": 43.482223,
+    "lng": -1.5591979999999999,
+    "url": "https://www.google.com/maps/place/g/1td6tkdj"
+  },
+  {
+    "name": "Noisette Pâtisserie",
+    "note": "",
+    "address": "5 Rue Gaston Larré, 64200 Biarritz, Francia",
+    "lat": 43.4817184,
+    "lng": -1.5655584,
+    "url": "https://www.google.com/maps/place/g/11qh0ycd0w"
+  },
+  {
+    "name": "The Artnoa House wines in Biarritz",
+    "note": "",
+    "address": "56 Rue Gambetta, 64200 Biarritz, Francia",
+    "lat": 43.4798164,
+    "lng": -1.5640954,
+    "url": "https://www.google.com/maps/place/g/11b7qt17rt"
+  },
+  {
+    "name": "GATXI",
+    "note": "",
+    "address": "4 Rue Jean Bart, 64200 Biarritz, Francia",
+    "lat": 43.48103,
+    "lng": -1.5582270999999999,
+    "url": "https://www.google.com/maps?q=43.48103,-1.5582270999999999"
+  },
+  {
+    "name": "Dimanche café & focaccia",
+    "note": "",
+    "address": "12 Av. de Verdun, 64200 Biarritz, Francia",
+    "lat": 43.4817227,
+    "lng": -1.5573892,
+    "url": "https://www.google.com/maps/place/g/11xzpplwmx"
+  },
+  {
+    "name": "Seabird",
+    "note": "",
+    "address": "2 Rue Jean Bart, 64200 Biarritz, Francia",
+    "lat": 43.481017,
+    "lng": -1.5587217999999998,
+    "url": "https://www.google.com/maps/place/g/11y_jk06hp"
+  },
+  {
+    "name": "Jaun café boutique",
+    "note": "",
+    "address": "2 Rue Peyroloubilh, 64200 Biarritz, Francia",
+    "lat": 43.4817738,
+    "lng": -1.5647039,
+    "url": "https://www.google.com/maps/place/g/11y542d3dm"
+  },
+  {
+    "name": "Chez Jérôme",
+    "note": "",
+    "address": "17 Rue Gambetta, 64200 Biarritz, Francia",
+    "lat": 43.4811431,
+    "lng": -1.5627533999999998,
+    "url": "https://www.google.com/maps?q=43.4811431,-1.5627533999999998"
+  },
+  {
+    "name": "Rocher du Basta",
+    "note": "",
+    "address": "Francia",
+    "lat": 43.4838658,
+    "lng": -1.5629070999999999,
+    "url": "https://www.google.com/maps/place/g/11b5pk1p_w"
+  },
+  {
+    "name": "Le Port des Pêcheurs/Arrantzaleen Portua",
+    "note": "",
+    "address": "All. Port des Pêcheurs, 64200 Biarritz, Francia",
+    "lat": 43.4833685,
+    "lng": -1.5651342,
+    "url": "https://www.google.com/maps/place/g/11f631c92b"
+  },
+  {
+    "name": "Point de vue de l'Impératrice",
+    "note": "",
+    "address": "64200 Biarritz, Francia",
+    "lat": 43.4918994,
+    "lng": -1.552592,
+    "url": "https://www.google.com/maps/place/g/11j8k3848v"
+  },
+  {
+    "name": "Bd du Prince de Galles",
+    "note": "",
+    "address": "64200 Biarritz, Francia",
+    "lat": 43.4772514,
+    "lng": -1.5669834999999999,
+    "url": "https://www.google.com/maps/place/g/1tsll0z7"
+  },
+  {
+    "name": "Le Carlos",
+    "note": "",
+    "address": "7 Bd du Prince de Galles, 64200 Biarritz, Francia",
+    "lat": 43.4788937,
+    "lng": -1.5663207,
+    "url": "https://www.google.com/maps/place/g/1tf9zr4y"
+  },
+  {
+    "name": "LE SURFING BIARRITZ",
+    "note": "",
+    "address": "9 Bd du Prince de Galles, 64200 Biarritz, Francia",
+    "lat": 43.4784179,
+    "lng": -1.5664116,
+    "url": "https://www.google.com/maps/place/g/1t_h_96n"
+  },
+  {
+    "name": "Bar du Marché",
+    "note": "",
+    "address": "Rue des Halles, 64200 Biarritz, Francia",
+    "lat": 43.480828699999996,
+    "lng": -1.5622098,
+    "url": "https://www.google.com/maps/place/g/11c5_747k4"
+  },
+  {
+    "name": "Las casas de colores",
+    "note": "",
+    "address": "Zuberoa Etorb., 23, Errekalde, 48012 Bilbao, Bizkaia, Spagna",
+    "lat": 43.2539539,
+    "lng": -2.9356109999999997,
+    "url": "https://www.google.com/maps?q=43.2539539,-2.9356109999999997"
+  },
+  {
+    "name": "Antxoa Taberna",
+    "note": "",
+    "address": "Pl. Berria, 1, Ibaiondo, 48005 Bilbao, Bizkaia, Spagna",
+    "lat": 43.259375899999995,
+    "lng": -2.9229901,
+    "url": "https://www.google.com/maps/place/g/11r18___vd"
+  },
+  {
+    "name": "El Globo",
+    "note": "",
+    "address": "Diputazio Kalea, 8, Abando, 48008 Bilbao, Bizkaia, Spagna",
+    "lat": 43.261980099999995,
+    "lng": -2.9326962,
+    "url": "https://www.google.com/maps/place/g/1tzzwv4s"
+  },
+  {
+    "name": "Restaurante Viña del Ensanche",
+    "note": "",
+    "address": "Diputazio Kalea, 10, Abando, 48008 Bilbao, Bizkaia, Spagna",
+    "lat": 43.2617626,
+    "lng": -2.9327006,
+    "url": "https://www.google.com/maps/place/g/1tk247g7"
+  },
+  {
+    "name": "Taska Beltz | Vinos, Rock y Cazuelitas",
+    "note": "",
+    "address": "Pilota Kalea, 4, Ibaiondo, 48005 Bilbao, Bizkaia, Spagna",
+    "lat": 43.257169,
+    "lng": -2.9256911999999997,
+    "url": "https://www.google.com/maps/place/g/11mpc8kmr7"
+  },
+  {
+    "name": "Bar Santamaría",
+    "note": "",
+    "address": "Andra Maria Kalea, 18, Ibaiondo, 48005 Bilbao, Bizkaia, Spagna",
+    "lat": 43.2577798,
+    "lng": -2.925547,
+    "url": "https://www.google.com/maps/place/g/11_ds93r0"
+  },
+  {
+    "name": "Bar Fermín",
+    "note": "Bacalao pil-oil",
+    "address": "Iturribide Kalea, 6, Ibaiondo, 48006 Bilbao, Bizkaia, Spagna",
+    "lat": 43.2581067,
+    "lng": -2.9212314999999998,
+    "url": "https://www.google.com/maps/place/g/1thkb1cv"
+  },
+  {
+    "name": "Solo Gastrotaska by Monocromo",
+    "note": "",
+    "address": "Heros Kalea, 9, Abando, 48009 Bilbao, Bizkaia, Spagna",
+    "lat": 43.2668264,
+    "lng": -2.9316518,
+    "url": "https://www.google.com/maps/place/g/11vj2rnszz"
+  },
+  {
+    "name": "Vermuteka",
+    "note": "",
+    "address": "Erribera Kalea, 57, Ibaiondo, 48005 Bilbao, Bizkaia, Spagna",
+    "lat": 43.2556029,
+    "lng": -2.9246586,
+    "url": "https://www.google.com/maps/place/g/11cs5v1j2c"
+  },
+  {
+    "name": "Ander Etxea",
+    "note": "",
+    "address": "Barrenkale Kalea, 21, Ibaiondo, 48005 Bilbao, Bizkaia, Spagna",
+    "lat": 43.2571643,
+    "lng": -2.9248697,
+    "url": "https://www.google.com/maps/place/g/11xk5_lkj"
+  },
+  {
+    "name": "Taberna Basaras",
+    "note": "",
+    "address": "Pilota Kalea, 2, Ibaiondo, 48005 Bilbao, Bizkaia, Spagna",
+    "lat": 43.2571432,
+    "lng": -2.9257321999999997,
+    "url": "https://www.google.com/maps/place/g/11cns6skvp"
+  },
+  {
+    "name": "Pulpería Vermutería Florines",
+    "note": "",
+    "address": "San Frantzisko Kalea, 31, Ibaiondo, 48003 Bilbao, Bizkaia, Spagna",
+    "lat": 43.2556965,
+    "lng": -2.9280778,
+    "url": "https://www.google.com/maps/place/g/11cmfzxw32"
+  },
+  {
+    "name": "Kapikua Casco Viejo",
+    "note": "",
+    "address": "Posta Kalea, 12, Ibaiondo, 48005 Bilbao, Bizkaia, Spagna",
+    "lat": 43.2585804,
+    "lng": -2.9235944,
+    "url": "https://www.google.com/maps/place/g/11cnr75fl6"
+  },
+  {
+    "name": "Eden Rock Café Biarritz",
+    "note": "",
+    "address": "2-4 Esp. du Port Vieux, 64200 Biarritz, Francia",
+    "lat": 43.4824337,
+    "lng": -1.5686745,
+    "url": "https://www.google.com/maps/place/g/11c0rtz2fq"
+  },
+  {
+    "name": "BAR JEAN BIARRITZ",
+    "note": "",
+    "address": "5 Rue des Halles, 64200 Biarritz, Francia",
+    "lat": 43.481334,
+    "lng": -1.562546,
+    "url": "https://www.google.com/maps/place/g/11bwh5cmqq"
+  },
+  {
+    "name": "Le Basta",
+    "note": "",
+    "address": "31 Bd du Général de Gaulle, 64200 Biarritz, Francia",
+    "lat": 43.483613299999995,
+    "lng": -1.5625213999999998,
+    "url": "https://www.google.com/maps/place/g/11xlt_7c9d"
+  },
+  {
+    "name": "La Villa Belza",
+    "note": "",
+    "address": "Bd du Prince de Galles, 64200 Biarritz, Francia",
+    "lat": 43.4772514,
+    "lng": -1.5669834999999999,
+    "url": "https://www.google.com/maps/place/g/11nqqgb202"
+  },
+  {
+    "name": "La Roche Plate - Sandwicherie Biarritz",
+    "note": "",
+    "address": "3 Pass. Gardères, 64200 Biarritz, Francia",
+    "lat": 43.483168,
+    "lng": -1.5596922,
+    "url": "https://www.google.com/maps/place/g/11dyp04hn8"
+  },
+  {
+    "name": "Aberdeen Records",
+    "note": "",
+    "address": "3 Rue du Helder, 64200 Biarritz, Francia",
+    "lat": 43.4818309,
+    "lng": -1.558943,
+    "url": "https://www.google.com/maps/place/g/11ssb7rhnh"
+  },
+  {
+    "name": "Sunburn Store",
+    "note": "",
+    "address": "49 Av. Maréchal Joffre, 64200 Biarritz, Francia",
+    "lat": 43.4750472,
+    "lng": -1.562347,
+    "url": "https://www.google.com/maps/place/g/11kn42dxs7"
+  },
+  {
+    "name": "1001 Cheeses Biarritz Halles",
+    "note": "",
+    "address": "Rue des Halles, 64200 Biarritz, Francia",
+    "lat": 43.481060899999996,
+    "lng": -1.5623083,
+    "url": "https://www.google.com/maps/place/g/11fhs7g83q"
+  },
+  {
+    "name": "Dunes Blanches chez Pascal Biarritz",
+    "note": "",
+    "address": "1 Av. du Maréchal Foch, 64200 Biarritz, Francia",
+    "lat": 43.4815323,
+    "lng": -1.5589681,
+    "url": "https://www.google.com/maps/place/g/11s4fxm22n"
+  },
+  {
+    "name": "Maison Adam - Biarritz Mazagran",
+    "note": "",
+    "address": "3 Pl. Georges Clemenceau, 64200 Biarritz, Francia",
+    "lat": 43.4824342,
+    "lng": -1.5615818,
+    "url": "https://www.google.com/maps/place/g/11ybd13k1q"
+  },
+  {
+    "name": "Faro di Biarritz",
+    "note": "",
+    "address": "60B Espl. Elisabeth II, 64200 Biarritz, Francia",
+    "lat": 43.493817,
+    "lng": -1.5538982,
+    "url": "https://www.google.com/maps/place/g/120x7592"
+  },
+  {
+    "name": "Chocolaterie Henriet",
+    "note": "",
+    "address": "Pl. Georges Clemenceau, 64200 Biarritz, Francia",
+    "lat": 43.4821469,
+    "lng": -1.5589326,
+    "url": "https://www.google.com/maps/place/g/1tjjqpnw"
+  },
+  {
+    "name": "MIREMONT PATISSERIE",
+    "note": "",
+    "address": "1B Pl. Georges Clemenceau, 64200 Biarritz, Francia",
+    "lat": 43.4824431,
+    "lng": -1.5617661999999999,
+    "url": "https://www.google.com/maps/place/g/11x7vlqb7"
+  },
+  {
+    "name": "BTZ Biarritz",
+    "note": "",
+    "address": "2 Pl. Bellevue, 64200 Biarritz, Francia",
+    "lat": 43.482817399999995,
+    "lng": -1.5608563,
+    "url": "https://www.google.com/maps/place/g/1hc5zsl_n"
+  },
+  {
+    "name": "Fadead Vintage",
+    "note": "",
+    "address": "26 Av. de Verdun, 64200 Biarritz, Francia",
+    "lat": 43.481756399999995,
+    "lng": -1.5558448999999999,
+    "url": "https://www.google.com/maps/place/g/11rq2j0wbz"
+  },
+  {
+    "name": "Providence Guéthary",
+    "note": "",
+    "address": "548 Av. du Général de Gaulle, 64210 Guéthary, Francia",
+    "lat": 43.424955999999995,
+    "lng": -1.608927,
+    "url": "https://www.google.com/maps/place/g/11by_fv442"
+  },
+  {
+    "name": "Olatua Biarritz",
+    "note": "",
+    "address": "Jardins de l'Atalaye, 64200 Biarritz, Francia",
+    "lat": 43.483672299999995,
+    "lng": -1.5675242999999999,
+    "url": "https://www.google.com/maps/place/g/11g8_139gs"
+  },
+  {
+    "name": "Maison Dezamy",
+    "note": "",
+    "address": "11 Rue des Halles, 64200 Biarritz, Francia",
+    "lat": 43.481235999999996,
+    "lng": -1.5621405,
+    "url": "https://www.google.com/maps/place/g/11cn9klcz0"
+  },
+  {
+    "name": "L'Ecaillerie",
+    "note": "Ostriche",
+    "address": "Halles Centrales, Rue des Halles, 64200 Biarritz, Francia",
+    "lat": 43.4812033,
+    "lng": -1.5627389999999999,
+    "url": "https://www.google.com/maps/place/g/1tnjkx57"
+  },
+  {
+    "name": "Casa Juan Pedro",
+    "note": "Ristorante di pesce sul molo del porto",
+    "address": "48 All. Port des Pêcheurs, 64200 Biarritz, Francia",
+    "lat": 43.4830854,
+    "lng": -1.5657623999999999,
+    "url": "https://www.google.com/maps/place/g/11ckq_bfw4"
+  },
+  {
+    "name": "Marcel Travel Posters",
+    "note": "",
+    "address": "38 Rue Gambetta, 64200 Biarritz, Francia",
+    "lat": 43.480836,
+    "lng": -1.563265,
+    "url": "https://www.google.com/maps/place/g/11nh4g0x4c"
+  },
+  {
+    "name": "Maison Arostéguy",
+    "note": "",
+    "address": "5 Av. Victor Hugo, 64200 Biarritz, Francia",
+    "lat": 43.48158,
+    "lng": -1.5610642,
+    "url": "https://www.google.com/maps/place/g/1tgnndb_"
+  },
+  {
+    "name": "Etxola Bibi Biarritz",
+    "note": "",
+    "address": "64200 Biarritz, Francia",
+    "lat": 43.4756059,
+    "lng": -1.5663635999999999,
+    "url": "https://www.google.com/maps/place/g/11b7qd_rxm"
+  },
+  {
+    "name": "Caracoli",
+    "note": "",
+    "address": "1 Rue de Larralde, 64200 Biarritz, Francia",
+    "lat": 43.4817423,
+    "lng": -1.5579657,
+    "url": "https://www.google.com/maps?q=43.4817423,-1.5579657"
+  },
+  {
+    "name": "Mälis",
+    "note": "",
+    "address": "4 Rue du Port-Vieux, 64200 Biarritz, Francia",
+    "lat": 43.482095799999996,
+    "lng": -1.5654120999999999,
+    "url": "https://www.google.com/maps/place/g/11rcqhlvb9"
+  },
+  {
+    "name": "Yeüz slice & coffee",
+    "note": "",
+    "address": "13 Av. de la Marne, 64200 Biarritz, Francia",
+    "lat": 43.4843876,
+    "lng": -1.5554792,
+    "url": "https://www.google.com/maps/place/g/11v3gp94tr"
+  },
+  {
+    "name": "Chéri Bibi",
+    "note": "",
+    "address": "50 Rue d'Espagne, 64200 Biarritz, Francia",
+    "lat": 43.474567,
+    "lng": -1.563852,
+    "url": "https://www.google.com/maps/place/g/11cnc65_97"
+  },
+  {
+    "name": "Nelly's",
+    "note": "",
+    "address": "21 Av. du Jardin public, 64200 Biarritz, Francia",
+    "lat": 43.480032,
+    "lng": -1.558875,
+    "url": "https://www.google.com/maps/place/g/11t_k7yjzg"
+  },
+  {
+    "name": "Comptoir Umami Biarritz - Izakaya Moderne",
+    "note": "",
+    "address": "2 Av. Joseph Petit, 64200 Biarritz, Francia",
+    "lat": 43.4828249,
+    "lng": -1.5580832,
+    "url": "https://www.google.com/maps/place/g/11rtw7yzvl"
+  },
+  {
+    "name": "Agapii Mou",
+    "note": "",
+    "address": "2 Rue du Helder, 64200 Biarritz, Francia",
+    "lat": 43.481637299999996,
+    "lng": -1.5588937999999999,
+    "url": "https://www.google.com/maps/place/g/11xl0cgvmc"
+  },
+  {
+    "name": "Café Loky",
+    "note": "",
+    "address": "47 Rue Gambetta, 64200 Biarritz, Francia",
+    "lat": 43.479442,
+    "lng": -1.5640171999999999,
+    "url": "https://www.google.com/maps/place/g/11vwvck6r_"
+  },
+  {
+    "name": "Lobita Atelier",
+    "note": "",
+    "address": "1 All. de l'Aeropostale, 64200 Biarritz, Francia",
+    "lat": 43.4697074,
+    "lng": -1.5446122999999998,
+    "url": "https://www.google.com/maps/place/g/11tfx7xjnk"
+  },
+  {
+    "name": "Cantine Bichon Biarritz",
+    "note": "",
+    "address": "24 Rue d'Espagne, 64200 Biarritz, Francia",
+    "lat": 43.4759405,
+    "lng": -1.5649684,
+    "url": "https://www.google.com/maps/place/g/11xmx3668j"
+  },
+  {
+    "name": "Miramar Beach",
+    "note": "",
+    "address": "64200, Francia",
+    "lat": 43.488067699999995,
+    "lng": -1.5555146,
+    "url": "https://www.google.com/maps/place/g/1tmxgwc2"
+  },
+  {
+    "name": "Rocher de la Vierge",
+    "note": "",
+    "address": "Rocher de la Vierge, 64200 Biarritz, Francia",
+    "lat": 43.4841208,
+    "lng": -1.5703489,
+    "url": "https://www.google.com/maps/place/g/121lmhgv"
+  },
+  {
+    "name": "Plage du Port Vieux",
+    "note": "",
+    "address": "64200, Francia",
+    "lat": 43.4824962,
+    "lng": -1.5682441999999999,
+    "url": "https://www.google.com/maps/place/g/1th64psf"
+  },
+  {
+    "name": "Beach Cote des Basques",
+    "note": "",
+    "address": "64200, Francia",
+    "lat": 43.474972,
+    "lng": -1.5685471,
+    "url": "https://www.google.com/maps/place/g/11bbrltg0z"
+  },
+  {
+    "name": "Halles de Biarritz",
+    "note": "",
+    "address": "Halles Centrale, Rue des Halles, 64200 Biarritz, Francia",
+    "lat": 43.481087099999996,
+    "lng": -1.5621448,
+    "url": "https://www.google.com/maps/place/g/11btmqzbcy"
+  },
+  {
+    "name": "El KBZÓN jatetxea",
+    "note": "",
+    "address": "C. Jose Miguel Barandiaran, 14, 20013 Donostia / San Sebastián, Gipuzkoa, Spagna",
+    "lat": 43.327691099999996,
+    "lng": -1.9702167,
+    "url": "https://www.google.com/maps/place/g/11s4x5ygxl"
+  },
+  {
+    "name": "Driper - Café de especialidad",
+    "note": "",
+    "address": "Kolon Pasealekua, 12, 20002 Donostia / San Sebastián, Gipuzkoa, Spagna",
+    "lat": 43.3229982,
+    "lng": -1.9768006,
+    "url": "https://www.google.com/maps/place/g/11lp7_cqm7"
+  },
+  {
+    "name": "Café Iruña",
+    "note": "",
+    "address": "Colón de Larreátegui K., 13, Abando, 48001 Bilbao, Bizkaia, Spagna",
+    "lat": 43.2624655,
+    "lng": -2.9280011,
+    "url": "https://www.google.com/maps/place/g/1hhj7jzdb"
+  },
+  {
+    "name": "Azkuna Zentroa-Alhóndiga Bilbao",
+    "note": "Piscina sospesa",
+    "address": "Arriquíbar Plaza, 4, Abando, 48010 Bilbao, Bizkaia, Spagna",
+    "lat": 43.2597198,
+    "lng": -2.9371747,
+    "url": "https://www.google.com/maps/place/m/0ds8dwm"
+  },
+  {
+    "name": "Bidebarrietako Liburutegi nagusia",
+    "note": "",
+    "address": "C. Bidebarrieta Kalea, 4, Ibaiondo, 48005 Bilbao, Biscay, Spagna",
+    "lat": 43.258757599999996,
+    "lng": -2.9245601,
+    "url": "https://www.google.com/maps/place/g/1q6msfwnv"
+  },
+  {
+    "name": "Cattedrale di Bilbao",
+    "note": "",
+    "address": "Done Jakue Plazatxoa, 1, Ibaiondo, 48005 Bilbao, Bizkaia, Spagna",
+    "lat": 43.2573174,
+    "lng": -2.9238412,
+    "url": "https://www.google.com/maps/place/m/0gl23q"
+  },
+  {
+    "name": "Erriberako Merkatua",
+    "note": "",
+    "address": "20 Bis, Erribera Kalea, Ibaiondo, 48005 Bilbao, Bizkaia, Spagna",
+    "lat": 43.2555913,
+    "lng": -2.9242453999999998,
+    "url": "https://www.google.com/maps/place/m/01295z9y"
+  },
+  {
+    "name": "Tabakalera",
+    "note": "",
+    "address": "Pl. de las Cigarreras, 1, 20012 Donostia / San Sebastián, Gipuzkoa, Spagna",
+    "lat": 43.316700499999996,
+    "lng": -1.9758434999999999,
+    "url": "https://www.google.com/maps/place/m/05zvgj5"
+  },
+  {
+    "name": "Gorriti Taberna",
+    "note": "",
+    "address": "San Juan Kalea, 3, 20003 Donostia / San Sebastián, Gipuzkoa, Spagna",
+    "lat": 43.3232594,
+    "lng": -1.9830835,
+    "url": "https://www.google.com/maps/place/g/1txc8brg"
+  },
+  {
+    "name": "Simona Specialty Coffee Club",
+    "note": "",
+    "address": "Ramón María Lili Pasealekua, 2, Bajo, 20002 Donostia / San Sebastián, Gipuzkoa, Spagna",
+    "lat": 43.3234269,
+    "lng": -1.9789495,
+    "url": "https://www.google.com/maps/place/g/11ssdjwq1j"
+  },
+  {
+    "name": "Casa Valles",
+    "note": "Bar che ha inventato la gilda",
+    "address": "Calle Los Reyes Católicos, 10, 20006 Donostia / San Sebastián, Gipuzkoa, Spagna",
+    "lat": 43.315401,
+    "lng": -1.9807401999999998,
+    "url": "https://www.google.com/maps/place/g/1tmqsppp"
+  },
+  {
+    "name": "Basqueland Izakaia",
+    "note": "",
+    "address": "Peña y Goñi Kalea, 4, 20002 Donostia / San Sebastián, Gipuzkoa, Spagna",
+    "lat": 43.3236959,
+    "lng": -1.9780232,
+    "url": "https://www.google.com/maps/place/g/11j7vfr47x"
+  },
+  {
+    "name": "BAR SPORT",
+    "note": "",
+    "address": "Fermin Calbeton Kalea, 10, 20003 Donostia / San Sebastián, Gipuzkoa, Spagna",
+    "lat": 43.323493,
+    "lng": -1.9837105,
+    "url": "https://www.google.com/maps/place/g/1vhq50g0"
+  },
+  {
+    "name": "Antonio taberna",
+    "note": "",
+    "address": "Bergara Kalea, 3, 20005 Donostia / San Sebastián, Gipuzkoa, Spagna",
+    "lat": 43.3197208,
+    "lng": -1.9806344,
+    "url": "https://www.google.com/maps/place/g/1tgmxlnc"
+  },
+  {
+    "name": "Bar Desy",
+    "note": "",
+    "address": "Local 19, Ronda Kalea, 4, Loc 4, 20001 Donostia / San Sebastián, Gipuzkoa, Spagna",
+    "lat": 43.3220525,
+    "lng": -1.9764283999999999,
+    "url": "https://www.google.com/maps/place/g/1tks7mm0"
+  },
+  {
+    "name": "Guggenheim Museum",
+    "note": "",
+    "address": "Abandoibarra Etorb., 2, Abando, 48009 Bilbao, Bizkaia, Spagna",
+    "lat": 43.2686712,
+    "lng": -2.9340118,
+    "url": "https://www.google.com/maps/place/m/0m86f"
+  },
+  {
+    "name": "Acantilados del Flysch",
+    "note": "",
+    "address": "Itsaspe Auz., 32, 20829 Deba, Gipuzkoa, Spagna",
+    "lat": 43.3013492,
+    "lng": -2.2604052,
+    "url": "https://www.google.com/maps/place/g/11cnrfjgmm"
+  },
+  {
+    "name": "San Juan de Gaztelugatxe",
+    "note": "",
+    "address": "48130 Gaztelugatxeko Doniene, Biscay, Spagna",
+    "lat": 43.447094299999996,
+    "lng": -2.784998,
+    "url": "https://www.google.com/maps/place/g/11jgctz0fh"
+  },
+  {
+    "name": "La Taberna del Pícaro",
+    "note": "",
+    "address": "Usandizaga Kalea, 5, 20002 Donostia / San Sebastián, Gipuzkoa, Spagna",
+    "lat": 43.3235579,
+    "lng": -1.9779209,
+    "url": "https://www.google.com/maps/place/g/11f01p76f2"
+  },
+  {
+    "name": "Goiz-Argi",
+    "note": "Brocheta de gambas",
+    "address": "Fermin Calbeton Kalea, 4, 20003 Donostia / San Sebastián, Gipuzkoa, Spagna",
+    "lat": 43.3236111,
+    "lng": -1.9833333,
+    "url": "https://www.google.com/maps/place/g/1tffw7t3"
+  },
+  {
+    "name": "La Cuchara de San Telmo",
+    "note": "",
+    "address": "Santa Korda Kalea, 4, 20003 Donostia / San Sebastián, Gipuzkoa, Spagna",
+    "lat": 43.3245016,
+    "lng": -1.9853227,
+    "url": "https://www.google.com/maps/place/g/1ttpcmf6"
+  },
+  {
+    "name": "Paco Bueno",
+    "note": "Gambas a la gabardina",
+    "address": "C. Mayor, 6, 20003 Donostia / San Sebastián, Gipuzkoa, Spagna",
+    "lat": 43.3226361,
+    "lng": -1.9856749999999999,
+    "url": "https://www.google.com/maps/place/g/1q5bnplrx"
+  },
+  {
+    "name": "Bodega Donostiarra Gros",
+    "note": "",
+    "address": "Peña y Goñi Kalea, 13, 20002 Donostia / San Sebastián, Gipuzkoa, Spagna",
+    "lat": 43.323200199999995,
+    "lng": -1.9774432,
+    "url": "https://www.google.com/maps/place/g/1tk_qlj9"
+  },
+  {
+    "name": "Bar Nestor",
+    "note": "Tortilla y tomate",
+    "address": "Arrandegi Kalea, 11, 20003 Donostia / San Sebastián, Gipuzkoa, Spagna",
+    "lat": 43.323872,
+    "lng": -1.9837069999999999,
+    "url": "https://www.google.com/maps/place/g/1td7pmyh"
+  },
+  {
+    "name": "La Viña",
+    "note": "Cheesecake basca",
+    "address": "31 de Agosto Kalea, 3, 20003 Donostia / San Sebastián, Gipuzkoa, Spagna",
+    "lat": 43.3243861,
+    "lng": -1.9847944,
+    "url": "https://www.google.com/maps/place/g/1td6c63w"
+  },
+  {
+    "name": "Gandarias",
+    "note": "",
+    "address": "31 de Agosto Kalea, 23, 20003 Donostia / San Sebastián, Gipuzkoa, Spagna",
+    "lat": 43.324022799999995,
+    "lng": -1.9857835,
+    "url": "https://www.google.com/maps/place/g/1tjmfzvz"
+  },
+  {
+    "name": "Pasealeku Berria",
+    "note": "",
+    "address": "20003 San Sebastián, Gipuzkoa, Spagna",
+    "lat": 43.326806,
+    "lng": -1.9899972,
+    "url": "https://www.google.com/maps/place/g/11x_x0hdz"
+  },
+  {
+    "name": "Peine del viento",
+    "note": "",
+    "address": "Eduardo Chillida Pasealekua, s/n, 20008 Donostia / San Sebastián, Gipuzkoa, Spagna",
+    "lat": 43.3218056,
+    "lng": -2.0053891,
+    "url": "https://www.google.com/maps/place/g/1238y1zn"
+  },
+  {
+    "name": "Monte Igueldo",
+    "note": "",
+    "address": "20008, Gipuzkoa, Spagna",
+    "lat": 43.317777799999995,
+    "lng": -2.02,
+    "url": "https://www.google.com/maps/place/g/11c6mdf45_"
+  },
+  {
+    "name": "Spiaggia di La Concha",
+    "note": "",
+    "address": "20007, Gipuzkoa, Spagna",
+    "lat": 43.318618799999996,
+    "lng": -1.9860118,
+    "url": "https://www.google.com/maps/place/m/0drwdtr"
+  },
+  {
+    "name": "Parco Doña Casilda Iturrizar",
+    "note": "",
+    "address": "Abando, 48009 Bilbao, Biscay, Spagna",
+    "lat": 43.265824599999995,
+    "lng": -2.9406963,
+    "url": "https://www.google.com/maps/place/m/03hpc24"
+  }
+]
