@@ -179,7 +179,7 @@ body, html {
 
 /* Search Box */
 .search-box {
-  margin: 12px 20px 8px;
+  margin: 12px 20px 6px;
   position: relative;
   display: flex;
   align-items: center;
@@ -225,13 +225,76 @@ body, html {
   color: var(--text-primary);
 }
 
+/* Category Select Dropdown Wrapper */
+.category-select-wrapper {
+  margin: 6px 20px 8px;
+}
+
+.filter-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.filter-label i {
+  color: var(--accent-primary);
+  margin-right: 4px;
+}
+
+.select-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.category-dropdown {
+  width: 100%;
+  padding: 10px 36px 10px 14px;
+  background: rgba(30, 41, 59, 0.9);
+  border: 1px solid var(--border-highlight);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition: var(--transition-fast);
+}
+
+.category-dropdown:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.category-dropdown option {
+  background: #0f172a;
+  color: #f8fafc;
+  padding: 8px;
+}
+
+.select-chevron {
+  position: absolute;
+  right: 14px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  pointer-events: none;
+}
+
 .hidden {
   display: none !important;
 }
 
 /* Filter Pills */
 .filter-pills {
-  padding: 8px 20px 12px;
+  padding: 4px 20px 12px;
   display: flex;
   gap: 6px;
   overflow-x: auto;

@@ -61,14 +61,40 @@
         </div>
       </div>
 
-      <!-- Search & Controls -->
+      <!-- Search Box -->
       <div class="search-box">
         <i class="fa-solid fa-magnifying-glass search-icon"></i>
         <input type="text" id="search-input" placeholder="Search name, category, note..." autocomplete="off">
         <button id="clear-search" class="clear-btn hidden"><i class="fa-solid fa-xmark"></i></button>
       </div>
 
-      <!-- Category Filter Pills -->
+      <!-- Category Filter Dropdown -->
+      <div class="category-select-wrapper">
+        <label for="category-select" class="filter-label">
+          <i class="fa-solid fa-filter"></i> Category Filter
+        </label>
+        <div class="select-container">
+          <select id="category-select" class="category-dropdown">
+            <option value="all">✨ Show All Categories (99)</option>
+            <option value="notes">⭐ With Notes Only (10)</option>
+            <option value="Cucina spagnola">🇪🇸 Cucina spagnola (25)</option>
+            <option value="Cafes/bakeries">🥐 Cafes/bakeries (18)</option>
+            <option value="Spiagge">🌊 Spiagge (12)</option>
+            <option value="Ristoranti">🍴 Ristoranti (11)</option>
+            <option value="Drinks">🥃 Drinks (8)</option>
+            <option value="Musei">🖼️ Musei (6)</option>
+            <option value="Mercati/alimentari">🛒 Mercati/alimentari (5)</option>
+            <option value="Negozi">🛍️ Negozi (5)</option>
+            <option value="Parchi">🌳 Parchi (3)</option>
+            <option value="Enoteche">🍷 Enoteche (2)</option>
+            <option value="Panini/burger">🥪 Panini/burger (2)</option>
+            <option value="Chiese">⛪️ Chiese (2)</option>
+          </select>
+          <i class="fa-solid fa-chevron-down select-chevron"></i>
+        </div>
+      </div>
+
+      <!-- Quick Category Filter Pills -->
       <div class="filter-pills" id="filter-pills">
         <button class="pill active" data-filter="all">All (99)</button>
         <button class="pill pill-star" data-filter="notes">⭐ Notes (10)</button>

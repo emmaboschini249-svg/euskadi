@@ -27,8 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const locationListEl = document.getElementById('location-list');
   const searchInputEl = document.getElementById('search-input');
   const clearSearchBtn = document.getElementById('clear-search');
-  const resultsCountEl = document.getElementById('results-count');
+  const categorySelectEl = document.getElementById('category-select');
   const filterPillsEl = document.getElementById('filter-pills');
+  const resultsCountEl = document.getElementById('results-count');
   const resetViewBtn = document.getElementById('reset-view-btn');
   const toggleSidebarBtn = document.getElementById('toggle-sidebar-btn');
   const mobileSidebarToggleBtn = document.getElementById('mobile-sidebar-toggle');
@@ -215,8 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Search & Filter Logic
   function applyFilters() {
     const query = searchInputEl.value.toLowerCase().trim();
-    const activePill = document.querySelector('.filter-pills .pill.active');
-    const filterType = activePill ? activePill.dataset.filter : 'all';
+    const selectedCategory = categorySelectEl.value;
 
     currentFilteredLocations = allLocations.filter((loc) => {
       // Search query check
@@ -229,17 +229,32 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!matchesSearch) return false;
 
       // Category filter check
-      if (filterType === 'all') {
+      if (selectedCategory === 'all') {
         return true;
-      } else if (filterType === 'notes') {
+      } else if (selectedCategory === 'notes') {
         return loc.note && loc.note.trim() !== '';
       } else {
-        return loc.category === filterType;
+        return loc.category === selectedCategory;
       }
     });
 
     renderSidebarList(currentFilteredLocations);
     renderMapMarkers(currentFilteredLocations);
+  }
+
+  // Sync category select dropdown with quick pills
+  function syncCategoryFilter(categoryValue) {
+    categorySelectEl.value = categoryValue;
+
+    document.querySelectorAll('.filter-pills .pill').forEach((pill) => {
+      if (pill.dataset.filter === categoryValue) {
+        pill.classList.add('active');
+      } else {
+        pill.classList.remove('active');
+      }
+    });
+
+    applyFilters();
   }
 
   // Event Listeners
@@ -254,14 +269,15 @@ document.addEventListener('DOMContentLoaded', () => {
     applyFilters();
   });
 
+  categorySelectEl.addEventListener('change', (e) => {
+    syncCategoryFilter(e.target.value);
+  });
+
   filterPillsEl.addEventListener('click', (e) => {
     const pill = e.target.closest('.pill');
     if (!pill) return;
 
-    document.querySelectorAll('.filter-pills .pill').forEach(p => p.classList.remove('active'));
-    pill.classList.add('active');
-
-    applyFilters();
+    syncCategoryFilter(pill.dataset.filter);
   });
 
   // Map Tile Selector
