@@ -36,21 +36,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize Map
   function initMap() {
-    // Default center around Basque Country
     map = L.map('map', {
       center: [43.32, -2.15],
       zoom: 10,
       zoomControl: false
     });
 
-    // Add zoom control at top right
     L.control.zoom({ position: 'bottomright' }).addTo(map);
 
-    // Set default tile layer
     activeTileLayer = TILE_LAYERS.voyager;
     activeTileLayer.addTo(map);
 
-    // Initialize Marker Cluster Group
     markersClusterGroup = L.markerClusterGroup({
       showCoverageOnHover: false,
       maxClusterRadius: 40,
@@ -59,17 +55,17 @@ document.addEventListener('DOMContentLoaded', () => {
     map.addLayer(markersClusterGroup);
   }
 
-  // Create Custom HTML Pin Icon
-  function createCustomIcon(hasNote) {
+  // Create Custom HTML Pin Icon with Emoji
+  function createCustomIcon(emoji, hasNote) {
     const className = hasNote ? 'custom-pin has-note' : 'custom-pin standard';
-    const innerContent = hasNote ? '<i class="fa-solid fa-star"></i>' : '';
+    const displayEmoji = emoji || '📍';
     
     return L.divIcon({
       className: '',
-      html: `<div class="${className}"><div class="custom-pin-inner">${innerContent}</div></div>`,
-      iconSize: [36, 36],
-      iconAnchor: [18, 36],
-      popupAnchor: [0, -32]
+      html: `<div class="${className}"><div class="custom-pin-inner">${displayEmoji}</div></div>`,
+      iconSize: [38, 38],
+      iconAnchor: [19, 38],
+      popupAnchor: [0, -34]
     });
   }
 
@@ -122,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
       itemEl.innerHTML = `
         <div class="location-title-row">
           <span class="location-name">${escapeHtml(loc.name)}</span>
+          <span class="category-tag">${loc.emoji || '📍'} ${escapeHtml(loc.category || 'Other')}</span>
         </div>
         ${hasNote ? `<div class="note-badge"><i class="fa-solid fa-comment-dots"></i> ${escapeHtml(loc.note)}</div>` : ''}
         <div class="location-address">
@@ -152,13 +149,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!loc.lat || !loc.lng) return;
 
       const hasNote = loc.note && loc.note.trim() !== '';
-      const markerIcon = createCustomIcon(hasNote);
+      const markerIcon = createCustomIcon(loc.emoji, hasNote);
 
       const marker = L.marker([loc.lat, loc.lng], { icon: markerIcon });
 
       // Popup Content Card
       const popupHtml = `
         <div class="popup-card">
+          <div class="popup-category">${loc.emoji || '📍'} ${escapeHtml(loc.category || 'Location')}</div>
           <div class="popup-title">${escapeHtml(loc.name)}</div>
           ${hasNote ? `<div class="popup-note"><i class="fa-solid fa-star"></i> ${escapeHtml(loc.note)}</div>` : ''}
           ${loc.address ? `<div class="popup-address"><i class="fa-solid fa-map-marker-alt"></i> ${escapeHtml(loc.address)}</div>` : ''}
@@ -189,13 +187,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const marker = locationMarkersMap.get(loc.name);
 
     if (marker) {
-      // Zoom & pan to marker
       map.flyTo([loc.lat, loc.lng], 16, {
         animate: true,
         duration: 1.2
       });
 
-      // Spiderfy cluster if marker is inside cluster
       markersClusterGroup.zoomToShowLayer(marker, () => {
         marker.openPopup();
       });
@@ -227,22 +223,19 @@ document.addEventListener('DOMContentLoaded', () => {
       const nameMatch = loc.name.toLowerCase().includes(query);
       const noteMatch = loc.note && loc.note.toLowerCase().includes(query);
       const addrMatch = loc.address && loc.address.toLowerCase().includes(query);
-      const matchesSearch = nameMatch || noteMatch || addrMatch;
+      const catMatch = loc.category && loc.category.toLowerCase().includes(query);
+      const matchesSearch = nameMatch || noteMatch || addrMatch || catMatch;
 
       if (!matchesSearch) return false;
 
       // Category filter check
-      if (filterType === 'notes') {
+      if (filterType === 'all') {
+        return true;
+      } else if (filterType === 'notes') {
         return loc.note && loc.note.trim() !== '';
-      } else if (filterType === 'donostia') {
-        return (loc.address && (loc.address.includes('Donostia') || loc.address.includes('San Sebastián'))) || loc.name.includes('Donostia');
-      } else if (filterType === 'bilbao') {
-        return (loc.address && loc.address.includes('Bilbao')) || loc.name.includes('Bilbao');
-      } else if (filterType === 'biarritz') {
-        return (loc.address && loc.address.includes('Biarritz')) || loc.name.includes('Biarritz');
+      } else {
+        return loc.category === filterType;
       }
-
-      return true;
     });
 
     renderSidebarList(currentFilteredLocations);

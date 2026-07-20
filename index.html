@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Euskadi Interactive Map — Basque Country Explorer</title>
-  <meta name="description" content="Interactive map of 99 curated locations across Euskadi (San Sebastián, Bilbao, Biarritz) with notes and recommendations.">
+  <meta name="description" content="Interactive map of 99 curated locations across Euskadi (San Sebastián, Bilbao, Biarritz) categorized with emojis and notes.">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,25 +56,34 @@
         </div>
         <div class="stat-divider"></div>
         <div class="stat-item">
-          <span class="stat-num">3</span>
-          <span class="stat-label">Regions</span>
+          <span class="stat-num">12</span>
+          <span class="stat-label">Categories</span>
         </div>
       </div>
 
       <!-- Search & Controls -->
       <div class="search-box">
         <i class="fa-solid fa-magnifying-glass search-icon"></i>
-        <input type="text" id="search-input" placeholder="Search by name, note, address..." autocomplete="off">
+        <input type="text" id="search-input" placeholder="Search name, category, note..." autocomplete="off">
         <button id="clear-search" class="clear-btn hidden"><i class="fa-solid fa-xmark"></i></button>
       </div>
 
       <!-- Category Filter Pills -->
       <div class="filter-pills" id="filter-pills">
         <button class="pill active" data-filter="all">All (99)</button>
-        <button class="pill pill-star" data-filter="notes"><i class="fa-solid fa-star"></i> With Notes (10)</button>
-        <button class="pill" data-filter="donostia">Donostia</button>
-        <button class="pill" data-filter="bilbao">Bilbao</button>
-        <button class="pill" data-filter="biarritz">Biarritz</button>
+        <button class="pill pill-star" data-filter="notes">⭐ Notes (10)</button>
+        <button class="pill" data-filter="Cucina spagnola">🇪🇸 Cucina spagnola (25)</button>
+        <button class="pill" data-filter="Cafes/bakeries">🥐 Cafes/bakeries (18)</button>
+        <button class="pill" data-filter="Spiagge">🌊 Spiagge (12)</button>
+        <button class="pill" data-filter="Ristoranti">🍴 Ristoranti (11)</button>
+        <button class="pill" data-filter="Drinks">🥃 Drinks (8)</button>
+        <button class="pill" data-filter="Musei">🖼️ Musei (6)</button>
+        <button class="pill" data-filter="Mercati/alimentari">🛒 Mercati (5)</button>
+        <button class="pill" data-filter="Negozi">🛍️ Negozi (5)</button>
+        <button class="pill" data-filter="Parchi">🌳 Parchi (3)</button>
+        <button class="pill" data-filter="Enoteche">🍷 Enoteche (2)</button>
+        <button class="pill" data-filter="Panini/burger">🥪 Panini/burger (2)</button>
+        <button class="pill" data-filter="Chiese">⛪️ Chiese (2)</button>
       </div>
 
       <!-- Location List -->
